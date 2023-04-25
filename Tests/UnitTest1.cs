@@ -4,8 +4,6 @@ using Prakt__6;
 
 namespace Tests
 {
-
-
     [TestClass]
     public class CalculationTests
     {

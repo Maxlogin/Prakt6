@@ -24,7 +24,7 @@ namespace ZAD3
         {
             InitializeComponent();
         }
-        private void btnCalculate_Click(object sender, RoutedEventArgs e)
+        public void btnCalculate_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -43,10 +43,10 @@ namespace ZAD3
             }
         }
 
-            private double CircleS(double R)
+            public static double CircleS(double R)
             {
                 const double PI = 3.14;
-                return PI * R * R;
+                return PI * Math.Pow(R,2);
             }
     }
 }

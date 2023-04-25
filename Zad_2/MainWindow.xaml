@@ -5,11 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zad_2"
         mc:Ignorable="d"
-        Title="Пример 1" Height="260" Width="300"
-        WindowStartupLocation="CenterScreen"
-        FontFamily="Comic Sans MS"
-        WindowStyle="ToolWindow"
-        ResizeMode="NoResize">
+        Title="Fx Calculator" Height="250" Width="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -19,18 +15,26 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" Grid.ColumnSpan="2" Content="Введите число x:"/>
-        <Label Grid.Row="1" Content="x:"/>
-        <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtNumber1" Margin="5"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="x:" Margin="10"/>
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtX" Margin="10"/>
 
-        <Button Grid.Row="2" Grid.ColumnSpan="2" Content="Вычислить" Click="btnCalculate_Click" Margin="5"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="n:" Margin="10"/>
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtN" Margin="10"/>
 
-        <Label Grid.Row="4" Content="" x:Name="lblResult" Margin="5"/>
-        <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Выход" Click="Button_Click" Margin="5"/>
+        <Button Grid.Row="2" Grid.ColumnSpan="2" Content="Calculate" x:Name="btnCalculate" Margin="10" Click="btnCalculate_Click"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Результат:" Margin="10"/>
+        <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtResult" Margin="10" IsReadOnly="True"/>
+
+        <Label Grid.Row="4" Grid.Column="0" Content="Ошибка:" Margin="10"/>
+        <TextBox Grid.Row="4" Grid.Column="1" x:Name="txtError" Margin="10" IsReadOnly="True"/>
+
+        <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" x:Name="lblErrorMessage" Foreground="Red" Margin="10"/>
     </Grid>
 </Window>

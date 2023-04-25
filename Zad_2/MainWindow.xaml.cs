@@ -20,22 +20,42 @@ namespace Zad_2
     /// </summary>
     public partial class MainWindow : Window
     {
-        public double f(int n,double x)
-        {
-            return Math.Pow(x, n) / n;
-        }
         public MainWindow()
         {
             InitializeComponent();
         }
         private void btnCalculate_Click(object sender, RoutedEventArgs e)
         {
-            double x = double.Parse(txtNumber1.Text);
-            lblResult.Content = $"Y={f(2, x) + f(4, x) + f(6, x)}";
+            // проверяем, что пользователь ввел корректные данные
+            if (!double.TryParse(txtX.Text, out double x) || !int.TryParse(txtN.Text, out int n))
+            {
+                lblErrorMessage.Content = "Неверный ввод";
+                return;
+            }
+
+            // проверяем, что n больше 0
+            if (n <= 0)
+            {
+                lblErrorMessage.Content = "n должно быть положительным";
+                return;
+            }
+
+            // вычисляем значение выражения
+            double sum = 0;
+            for (int i = 2; i <= 6; i += 2)
+            {
+                sum += f(i, x);
+            }
+
+            // выводим результат
+            txtResult.Text = sum.ToString();
+            txtError.Text = "";
+            lblErrorMessage.Content = "";
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        public static double f(int n, double x)
         {
-            Close();
+            return Math.Pow(x, n) / n;
         }
     }
 }
