@@ -21,7 +21,7 @@ namespace Prakt__6
     
 public partial class MainWindow : Window
     {
-        static int f(int x)
+        public static int f(int x)
         {
             return x % 10;
         }
